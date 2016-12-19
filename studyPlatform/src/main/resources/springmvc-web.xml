@@ -29,7 +29,7 @@
 	
 	<!--配置视图解析器,页面的响应 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEB-INF/" p:suffix=".jsp"></bean>
+		p:prefix="/" p:suffix=".jsp"></bean>
 	
 	
 	
