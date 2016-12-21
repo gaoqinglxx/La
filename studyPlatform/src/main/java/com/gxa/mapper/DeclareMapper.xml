@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxa.dao.DeclareDao">
+	<!-- 通过地区id和项目申请状态查询 -->
+	<select id="getProjectByIdStatus" parameterType="java.util.Map" resultType="java.util.Map">
+		select pro_id,pro_name,pro_year,pro_other_money,pro_self_money from project where area_id=#{area_id} and pro_apply_status=#{pro_apply_status}
+	</select>
+	<!-- 通过项目id进行查询 -->
+	<select id="getProjectById" parameterType="int" resultType="com.gxa.model.Project">
+		select *from project where pro_id=#{pro_id}
+	</select>
+</mapper>

@@ -11,6 +11,8 @@
   <title>实施进度表</title>
 </head>
 <body>
-实施项目。。。。。。。。。。。
+	<div style="height: 30px; text-align:center;color:balck;font-size:18px;line-height: 30px; background: url(images/dialog_bg.jpg) #7f99be repeat-x center 50%;">
+ 		查询
+ 	</div>
 </body>
 </html>

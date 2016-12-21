@@ -155,8 +155,9 @@ var _menus = {
 </script>
 </head>
 <body class="easyui-layout"  style="overflow-y:hidden" scroll="no"><!--布局     表示没有垂直滚动条 -->
+ 	<%String username=(String)session.getAttribute("username");%>
  	<div data-options="region:'north',border:false" style="overflow: hidden; height: 30px; background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%; line-height: 30px; color: #fff; font-family: Verdana, 微软雅黑, 黑体">
- 		<span style="float: right; padding-right: 20px;" class="head">欢迎admin&nbsp;&nbsp;<a href="#" >退出</a></span>
+ 		<span style="float: right; padding-right: 20px;" class="head">欢迎,<%=username%>&nbsp;&nbsp;<a href="/P2P2/user/logout.do" >注销</a></span>
  		<span style="padding-left: 10px; font-size: 16px;">
 		<img src="images/blocks.gif" width="20" height="20" align="absmiddle" />四川省名族地区两项资金项目申报管理系统
 		</span>
@@ -167,7 +168,7 @@ var _menus = {
  	<div data-options="region:'center'" style="overflow:hidden">
  		<div class="easyui-tabs" data-options="fit:true">
  			<div title="欢迎" style="padding:20px;overflow:hidden">
- 				<h1>欢迎,admin</h1>
+ 				<h1>欢迎,<%=username%></h1>
  			</div>
  		</div>
  	</div>

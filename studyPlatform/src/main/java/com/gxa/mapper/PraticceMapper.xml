@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxa.dao.PraticeDao">
+	<!-- 给项目进度表插入数据 -->
+	<insert id="addProgress" parameterType="com.gxa.model.Progress">
+		insert into progress(pro_id,progress_place_status,progress_ok,progress_assi_money,progress_bf_money,progress_bz,progress_finish,progress_remark,progress_department,progress_res,progress_informant) values(#{pro_id},#{progress_place_status},#{progress_ok},#{progress_assi_money},#{progress_bf_money},#{progress_bz},#{progress_finish},#{progress_remark},#{progress_department},#{progress_res},#{progress_informant})
+	</insert>
+	<!-- 给项目进度表更新数据 -->
+	<update id="updateProgress" parameterType="com.gxa.model.Progress">
+		update progress set progress_place_status=#{progress_place_status},progress_ok=#{progress_ok},progress_assi_money=#{progress_assi_money},progress_bf_money=#{progress_bf_money},progress_bz=#{progress_bz},progress_finish=#{progress_finish},progress_remark=#{progress_remark},progress_department=#{progress_department},progress_res=#{progress_res},progress_informant=#{progress_informant} where pro_id=#{pro_id}
+	</update>
+	<!-- 根据项目id来查询项目进度表 -->
+	<select id="selectProgressByProId" parameterType="int" resultType="com.gxa.model.Progress">
+		select *from progress where pro_id=#{pro_id}
+	</select>
+</mapper>
