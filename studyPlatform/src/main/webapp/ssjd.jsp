@@ -14,6 +14,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		setYear();
+		showArea();
 	});
 	//设置下拉框显示的年份
 	function setYear(){
@@ -24,7 +25,13 @@
 		}
 		$("#pro_year").append(value);
 	}
-	
+	//显示地区
+	function showArea(){
+		$.post("pratice/getArea.do",function(data){
+			alert(data);
+		},"text");
+	}
+	//根据年份进行进度表查询
 	function selectProgress(){
 		var year=$("#pro_year").find("option:selected").val();
 		alert(year);

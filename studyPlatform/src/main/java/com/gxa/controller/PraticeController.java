@@ -1,5 +1,10 @@
 package com.gxa.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +46,17 @@ public class PraticeController {
 		pro.setProgress_informant(progress_informant);
 		return praticeService.addProgress(pro);
 	}
+	@RequestMapping("/getArea")
+	@ResponseBody
+	public String getArea(HttpSession session){
+		int area_id=(int)session.getAttribute("area_id");
+		System.out.println("area_id==="+area_id);
+		praticeService.getArea(area_id);
+		return "hello";
+	}
+	
+	
+	
 	/**
 	 * 查看项目进度统计表
 	 * @return

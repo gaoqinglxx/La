@@ -13,4 +13,8 @@
 	<select id="selectProgressByProId" parameterType="int" resultType="com.gxa.model.Progress">
 		select *from progress where pro_id=#{pro_id}
 	</select>
+	<!--根据地区id得到单位地区 -->
+	<select id="getArea" parameterType="int" resultType="java.util.Map">
+		select a.area_name,b.area_name from area a join area b on a.area_id=b.area_parent_id where b.area_id=#{area_id}
+	</select>
 </mapper>

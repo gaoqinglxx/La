@@ -1,5 +1,7 @@
 package com.gxa.service.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,11 @@ public class PraticeServiceImpl implements PraticeService {
 		}else{
 			return praticeDao.addProgress(pro);
 		}
+	}
+	@Override
+	public Map<String, Object> getArea(int area_id) {
+
+		return praticeDao.getArea(area_id);
 	}
 
 }
