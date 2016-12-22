@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gxa.model.Progress;
 import com.gxa.service.PraticeService;
@@ -39,5 +40,27 @@ public class PraticeController {
 		pro.setProgress_res(progress_res);
 		pro.setProgress_informant(progress_informant);
 		return praticeService.addProgress(pro);
+	}
+	/**
+	 * 查看项目进度统计表
+	 * @return
+	 */
+	@RequestMapping("/getProgressTable")
+	public ModelAndView showProgressTable(){
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("showProgressTable");
+		mav.addObject("xx", "xx");
+		return mav;
+	}
+	/**
+	 * 查看项目进度统计图表
+	 * @return
+	 */
+	@RequestMapping("/getProgressPicture")
+	public ModelAndView showProgressPicture(){
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("showProgressPicture");
+		mav.addObject("xx", "xx");
+		return mav;
 	}
 }

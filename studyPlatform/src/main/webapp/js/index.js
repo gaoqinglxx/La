@@ -89,3 +89,29 @@ var flg={
 			return nodes;
 	  	}
 }
+function getNowYear(){
+    
+   /* function getEle(id){
+        return document.getElementById(id);
+    }    */
+    
+    d = new Date();
+    nowYear = +d.getFullYear();
+    return nowYear;
+}
+
+function setYear(piyear) {
+	var year =  getNowYear();
+	/*pro = document.projectinfo ? document.projectinfo["piyear"] : document
+		.getElementById('piyear');
+	//pro=$("#piyear");
+	pro.options[0] = new Option("请选择年份", "");
+	for ( var i = -5; i < 5; i++) {
+		pro.options[i+6] = new Option(nowYear+i, nowYear+i);
+	}*/
+	var value="";
+	for(var i=-10;i<0;i++){
+		value+="<option>"+(year+i)+"</option>"
+	}
+	$("#piyear").append(value);
+}
