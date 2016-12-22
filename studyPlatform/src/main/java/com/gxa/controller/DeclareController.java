@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,8 +33,9 @@ public class DeclareController {
 	 */
 	@RequestMapping("/getProjectName")
 	@ResponseBody
-	public List<Map<String, Object>> getProjectByIdStatus(){
-				int area_id=2;
+	public List<Map<String, Object>> getProjectByIdStatus(HttpSession session){
+				
+				int area_id=(int) session.getAttribute("area_id");
 				String pro_apply_status="已审批";
 				Map<String, Object> map=new HashMap<>();
 				map.put("area_id", area_id);
