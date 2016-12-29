@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxa.dao.StatisticsDao">
+	<select id="getStatisticsList" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT pj.pro_id,pro_name,stat.*from project pj left JOIN stat on stat.pro_id=pj.pro_id WHERE pj.area_id in 
+(select area_id from area where area_parent_id=#{area_id} or area_id=#{area_id})AND pj.year=#{year}
+	</select>
+	
+	<select id="getAllStatList" resultType="java.util.Map" parameterType="String">
+		SELECT pj.pro_id,pro_name,stat.*from project pj left JOIN stat on stat.pro_id=pj.pro_id where pj.year=#{year}
+	</select>
+	
+	<insert id="addStatistics"  parameterType="com.gxa.model.Statistics">
+		INSERT INTO stat (pro_id,stat_assi_money,stat_real_money,stat_amount) VALUES(#{pro_id},#{stat_assi_money},#{stat_real_money},#{stat_amount})
+	</insert>
+	<update id="updateStat" parameterType="com.gxa.model.Statistics">
+		UPDATE stat SET stat_assi_money=#{stat_assi_money},stat_real_money=#{stat_real_money},stat_amount=#{stat_amount} where stat_id=#{stat_id}
+	</update>
+	<select id="getSumStatAssiMoneyByArea" resultType="double">
+		SELECT SUM(stat.stat_assi_money) FROM stat INNER JOIN project pj ON stat.pro_id = pj.pro_id
+INNER JOIN area ON pj.area_id = area.area_id WHERE pj.area_id IN (SELECT area_id FROM area WHERE area_parent_id = #{area_id} OR area_id = #{area_id}
+	)
+	</select>
+	<select id="getStatisticsListByArea" resultType="java.util.Map">
+		SELECT sum(stat.stat_assi_money),area.area_name FROM stat INNER JOIN project pj ON stat.pro_id = pj.pro_id
+INNER JOIN area ON pj.area_id = area.area_id WHERE pj.area_id IN (SELECT area_id FROM area WHERE
+area_parent_id = 1 OR area_id = 1) GROUP BY area.area_name
+	</select>
+</mapper>
