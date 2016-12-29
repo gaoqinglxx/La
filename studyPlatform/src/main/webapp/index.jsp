@@ -110,7 +110,7 @@ var _menus = {
 			"menus" : [{
 				"menuname":"效益统计",
 				"icon" : "icon-bullet_right",
-				"url" : "khmc.do"
+				"url" : "stat/statList.jsp"
 			}, {
 				"menuname" : "按地区分类",
 				"icon" : "icon-bullet_right",

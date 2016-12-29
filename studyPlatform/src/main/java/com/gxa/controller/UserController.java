@@ -40,6 +40,7 @@ public class UserController {
 		}
 		session.setAttribute("username", user.getUserealname());
 		session.setAttribute("area_id", user.getArea_id());
+		session.setAttribute("role_id", user.getRole_id());
 		return "redirect:/index.jsp";
 	}
 	/**
